@@ -4,30 +4,30 @@ angular.module('task', ['ionic'])
 .controller('Controller', function($scope, $ionicModal) {
     $scope.tasks = [];
 
-  // Create and load the Modal
-  $ionicModal.fromTemplateUrl('new-task.html', function(modal) {
-    $scope.taskModal = modal;
+  // creating and loading the model
+  $ionicModal.fromTemplateUrl('New', function(modal) {
+    $scope.MyModal = modal;
   }, {
     scope: $scope,
-    animation: ''
+    animation: '' //animations the slide up of the form
   });
 
-  // Called when the form is submitted
-  $scope.createTask = function(task) {
+  // Calls when the form is submitted
+  $scope.createTheTask = function(task) {
     $scope.tasks.push({
       title: task.title
     });
-    $scope.taskModal.hide();
+    $scope.MyModal.hide();
     task.title = "";
   };
 
-  // Open our new task modal
-  $scope.newTask = function() {
-    $scope.taskModal.show();
+  // opens and new modal task when you click on the mark icon
+  $scope.thisTask = function() {
+    $scope.MyModal.show();
+    
   };
-
-  // Close the new task modal
-  $scope.closeNewTask = function() {
-    $scope.taskModal.hide();
+  // Closes the new modal task the cancel funtion
+  $scope.closeTheTask = function() {
+    $scope.MyModal.hide();
   };
 });

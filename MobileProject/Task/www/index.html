@@ -15,49 +15,48 @@
     <script src="cordova.js"></script>
     <script src="js/app.js"></script>
   </head>
-  <body ng-app="task" ng-controller="Controller">
-
-<ion-side-menus>
-  <ion-side-menu-content>
-  <ion-header-bar class="bar-calm">
-    <h1 class="title">Tasks to be done</h1>
-      <!-- New Task button-->
-      <button class="button button-icon" ng-click="newTask()">
-        <i class="icon ion-compose"></i>
-      </button>
+  <body ng-app="task" ng-controller="Controller"> <!-- my controller for my whole app -->
+      <!--header at the top of app-->
+  <ion-header-bar class="bar-calm"> 
+        <h1 class="title">Tasks to be done</h1>
+      <!-- for creating the new task the button is clicked-->
+        <button class="button button-icon" ng-click="thisTask()">
+            <i class="icon ion-android-create"></i>
+        </button>
   </ion-header-bar>
-  <ion-content>
-    <!-- our list and list items -->
-    <ion-list>
-      <ion-item ng-repeat="task in tasks">
-        {{task.title}}
-      </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-side-menu-content>
+      
+      <ion-content>
+        <!-- List containing out tasks with a check box to click when task completed -->
+        <ion-list>
+            <ion-item ng-repeat="task in tasks">
+            <ion-checkbox ng-model="filter.pink">{{task.title}}</ion-checkbox>
+            </ion-item>
+        </ion-list>
+      </ion-content>
 
     
-    <script id="new-task.html" type="text/ng-template">
+    <script id="New" type="text/ng-template"> 
 
-  <div class="modal">
+  <div class="modal"> <!-- the modal which will call the functions in the app.js-->
 
-    <!-- Modal header bar -->
+    <!-- Header of the modal -->
     <ion-header-bar class="bar-secondary">
-      <h1 class="title">New Task</h1>
-      <button class="button button-clear button-positive" ng-click="closeNewTask()">Cancel</button>
+      <h1 class="title">Making a new Task</h1>
+      <button class="button button-calm button-positive" ng-click="closeTheTask()">Cancel this action</button> <!-- cancels the form if user does not want the task function -->
     </ion-header-bar>
 
-    <!-- Modal content area -->
+    <!-- Modal which calls our js for the function of bringing up our pop up window where you fill in tasks-->
     <ion-content>
 
-      <form ng-submit="createTask(task)">
+      <form ng-submit="createTheTask(task)">
         <div class="list">
-          <label class="item item-input">
-            <input type="text" placeholder="Whats to do today Sir/Madam" ng-model="task.title">
+          <label class="item item-input"> <!-- the text input asking the user what they want to input -->
+            <input type="text" placeholder="What to do today Sir/Madam" ng-model="task.title">
           </label>
         </div>
         <div class="padding">
-          <button type="submit" class="button button-block button-positive">Create Task</button>
+            <!-- hitting this button creates the task and submits it to the screen -->
+          <button type="Agree" class="button button-block button-dark">Create a Task</button> 
         </div>
       </form>
 
@@ -66,6 +65,5 @@
   </div>
 
 </script>
-  </ion-side-menus>
   </body>
 </html>
