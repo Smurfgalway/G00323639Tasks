@@ -13,3 +13,5 @@ needs button to intialise task
 task needs to intake text and display on screen
 buttons need to function and call controller and functions
 cancel function if the user does not want to enter a task
+
+code references and adaptations from Ionic website and Ionic framework when making this project
